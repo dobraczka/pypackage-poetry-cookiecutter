@@ -1,0 +1,26 @@
+{
+  "full_name": "Your Name",
+  "email": "name@example.com",
+  "github_username": "username",
+  "project_name": "myproject",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+  "module_name": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_short_description": "a neat little project",
+  "pypi_username": "{{ cookiecutter.github_username }}",
+  "version": "0.1.0",
+  "gist_id": "",
+  "gist_name": "",
+  "data_science": "n",
+  "create_docs": "y",
+  "open_source_license": [
+    "MIT license",
+    "Apache Software License 2.0",
+    "GNU General Public License v3.0",
+    "GNU General Public License v2.0",
+    "BSD 3-Clause 'New' or 'Revised' License",
+    "GNU Lesser General Public License v2.1",
+    "BSD 2-Clause 'Simplified' License",
+    "Not open source"
+  ],
+  "command_line_interface": "y"
+}
