@@ -56,6 +56,7 @@ flake8-comprehensions = "^3.5.0"
 flake8-print = "^4.0.0"
 flake8-bugbear = "^21.4.3"
 flake8-simplify = "^0.14.1"
+
 {%- if cookiecutter.command_line_interface == "y" -%}
 typer = "^0.3.2"
 {% endif %}
