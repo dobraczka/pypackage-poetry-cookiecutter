@@ -10,8 +10,6 @@
   "version": "0.1.0",
   "gist_id": "",
   "gist_name": "",
-  "data_science": "n",
-  "create_docs": "y",
   "open_source_license": [
     "MIT license",
     "Apache Software License 2.0",
@@ -21,6 +19,5 @@
     "GNU Lesser General Public License v2.1",
     "BSD 2-Clause 'Simplified' License",
     "Not open source"
-  ],
-  "command_line_interface": "y"
+  ]
 }

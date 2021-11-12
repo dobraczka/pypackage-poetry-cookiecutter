@@ -37,8 +37,6 @@ jobs:
       run: black --config pyproject.toml --diff {{cookiecutter.module_name}}/ tests/
     - name: Lint with flake8
       run: poetry run pflake8 {{cookiecutter.module_name}}/
-    - name: Check doc quality
-      run: poetry run pflake8 --select D {{cookiecutter.module_name}}/
     - name: Test with tox
       run: tox
 {% raw %}

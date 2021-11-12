@@ -22,44 +22,16 @@ repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecut
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues"
 "Source" = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
-{% if cookiecutter.create_docs == "y" -%}"Documentation" = "https://{{ cookiecutter.project_slug }}.readthedocs.io"{% endif %}
+"Documentation" = "https://{{ cookiecutter.project_slug }}.readthedocs.io"
 
 [tool.poetry.dependencies]
 python = "^3.7.1"
-tqdm = "^4.56.0"
 importlib-metadata = "^4.5.0;python_version<3.8"
-sphinx = {version = "^4.0.2", optional = true}
-insegel = {version = "^1.1.0", optional = true}
-{%- if cookiecutter.data_science == "y" -%}
-scikit-learn = "^0.24.1"
-pandas = "^1.2.1"
-joblib = "^1.0.0"
-numpy = "^1.20.0"
-scipy = "^1.6.0"
-{%- endif %}
 
 
 [tool.poetry.dev-dependencies]
-ipdb = "^0.13.4"
-mypy = "^0.800"
-darglint = "^1.6.0"
-pytest = "^6.2.2"
-pytest-cov = "^2.11.1"
-tox = "^3.21.4"
-black = "^21.6b0"
-pyproject-flake8 = "^0.0.1-alpha.2"
-flake8-eradicate = "^1.0.0"
-flake8-isort = "^4.0.0"
-flake8-docstrings = "^1.6.0"
-flake8-debugger = "^4.0.0"
-flake8-comprehensions = "^3.5.0"
-flake8-print = "^4.0.0"
-flake8-bugbear = "^21.4.3"
-flake8-simplify = "^0.14.1"
-
-{%- if cookiecutter.command_line_interface == "y" -%}
-typer = "^0.3.2"
-{% endif %}
+sphinx = {version = "^4.0.2", optional = true}
+insegel = {version = "^1.1.0", optional = true}
 
 
 [tool.poetry.extras]
