@@ -7,7 +7,7 @@ The easiest way to get {{ cookiecutter.project_name }} is via pip:
 
    pip install {{ cookiecutter.module_name }}
 
-To build kiez from source use `poetry <https://python-poetry.org/>`_ 
+To build {{ cookiecutter.project_name }} from source use `poetry <https://python-poetry.org/>`_ 
 
 .. code-block:: bash
 
