@@ -41,4 +41,6 @@ jobs:
         python -m pip install poetry
         poetry install -v
     - name: Check doc quality
-      run: poetry run pflake8 --select "D102,103" {{cookiecutter.module_name}}/
+      run: |
+        poetry run pflake8 --select "D102,103" {{cookiecutter.module_name}}/
+        nox -s build_docs
