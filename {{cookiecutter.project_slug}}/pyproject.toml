@@ -63,7 +63,7 @@ statistics = "true"
 
 [tool.black]
 line-length = 88
-experimental-string-processing = true
+target-version = ["py37", "py38", "py39", "py310"]
 include = '\.pyi?$'
 exclude = '''
 /(
@@ -78,3 +78,11 @@ exclude = '''
   | dist
 )/
 '''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+include_trailing_comma = true
+reverse_relative = true
+
