@@ -63,6 +63,9 @@ max-line-length = 88
 count = "true"
 show-source = "true"
 statistics = "true"
+strictness = "short"
+docstring_style = "sphinx"
+per-file-ignores = "tests/*: DAR002"
 
 [tool.black]
 line-length = 88
