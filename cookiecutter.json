@@ -1,7 +1,7 @@
 {
-  "full_name": "Your Name",
-  "email": "name@example.com",
-  "github_username": "username",
+  "full_name": "Daniel Obraczka",
+  "email": "obraczka@informatik.uni-leipzig.de",
+  "github_username": "dobraczka",
   "project_name": "myproject",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
   "module_name": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
