@@ -18,6 +18,10 @@ license = "{{ license_classifiers[cookiecutter.open_source_license] }}"
 readme = "README.md"
 keywords = []
 repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
+packages = [
+  {include = "{{ cookiecutter.module_name }}"},
+  {include = "{{ cookiecutter.module_name }}/py.typed"},
+]
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues"
