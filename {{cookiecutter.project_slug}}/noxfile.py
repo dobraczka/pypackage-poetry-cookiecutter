@@ -33,7 +33,6 @@ def style_checking(session: Session) -> None:
         "flake8-comprehensions",
         "flake8-print",
         "flake8-black",
-        "flake8-black",
         "darglint",
         "pydocstyle",
     )
@@ -41,10 +40,24 @@ def style_checking(session: Session) -> None:
 
 
 @session()
+def pyroma(session: Session) -> None:
+    session.install("poetry", "pyroma")
+    session.run("pyroma", "--min", "10", ".")
+
+
+@session()
 def type_checking(session: Session) -> None:
     args = session.posargs or locations
-    session.run_always("poetry", "install", external=True)
+    session.install("mypy")
     session.run("mypy", "--ignore-missing-imports", *args)
+
+
+@session()
+def doctests(session: Session) -> None:
+    session.install(".[all]")
+    session.install("xdoctest")
+    session.install("pygments")
+    session.run("xdoctest", "-m", "{{ cookiecutter.module_name }}")
 
 
 @session()
