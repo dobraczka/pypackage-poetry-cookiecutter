@@ -33,10 +33,10 @@ def style_checking(session: Session) -> None:
         "flake8-comprehensions",
         "flake8-print",
         "flake8-black",
+        "flake8-bugbear",
         "darglint",
         "pydocstyle",
     )
-    session.run("mypy", "--install-types", "--non-interactive")
     session.run("pflake8", "--docstring-style", "sphinx", *args)
 
 
@@ -50,7 +50,13 @@ def pyroma(session: Session) -> None:
 def type_checking(session: Session) -> None:
     args = session.posargs or locations
     session.install("mypy")
-    session.run("mypy", "--ignore-missing-imports", *args)
+    session.run(
+        "mypy",
+        "--install-types",
+        "--non-interactive",
+        "--ignore-missing-imports",
+        *args
+    )
 
 
 @session()
