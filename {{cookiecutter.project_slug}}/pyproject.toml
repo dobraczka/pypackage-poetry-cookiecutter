@@ -16,6 +16,7 @@ authors = ["{{ cookiecutter.full_name.replace("\"", "\\\"") }} <{{ cookiecutter.
 license = "{{ license_classifiers[cookiecutter.open_source_license] }}"
 {%- endif %}
 readme = "README.md"
+changelog = "CHANGELOG.md"
 keywords = []
 classifiers = ["Development Status :: 4 - Beta", "Programming Language :: Python", "Programming Language :: Python :: 3.8", "Programming Language :: Python :: 3.9", "Programming Language :: Python :: 3.10", "Programming Language :: Python :: 3 :: Only"]
 repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
