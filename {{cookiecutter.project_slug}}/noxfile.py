@@ -11,7 +11,7 @@ def tests(session: Session) -> None:
     session.run("pytest", *args)
 
 
-locations = ["{{ cookiecutter.module_name }}", "tests", "noxfile.py"]
+locations = ["src", "tests", "noxfile.py"]
 
 
 @session()
@@ -69,9 +69,5 @@ def doctests(session: Session) -> None:
 
 @session()
 def build_docs(session: Session) -> None:
-    session.install(".")
-    session.install("sphinx")
-    session.install("insegel")
-    session.cd("docs")
-    session.run("make", "clean", external=True)
-    session.run("make", "html", external=True)
+    session.install(".[docs]")
+    session.run("mkdocs", "build", external=True)
