@@ -3,7 +3,7 @@ from nox_poetry import Session, session
 
 @session()
 def tests(session: Session) -> None:
-    args = session.posargs or ["--cov={{ cookiecutter.module_name }}", "--cov-report=xml"]
+    args = session.posargs or ["-m", "not slow", "--cov={{ cookiecutter.module_name }}", "--cov-report=xml"]
     session.install(".[all]")
     session.install("pytest")
     session.install("pytest-cov")

@@ -103,5 +103,10 @@ line_length = 88
 include_trailing_comma = true
 reverse_relative = true
 
+[tool.pytest.ini_options]
+markers = [
+    "slow: mark test as slow"
+]
+
 [tool.cruft]
 skip = ["src/{{ cookiecutter.module_name }}/__init__.py", "tests/", "README.md", "docs/"]
