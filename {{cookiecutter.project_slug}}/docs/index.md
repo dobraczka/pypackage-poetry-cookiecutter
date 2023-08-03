@@ -1,6 +1,6 @@
 <p align="center">
 <img src="https://github.com/dobraczka/{{ cookiecutter.module_name }}/raw/main/docs/assets/logo.png" alt="{{ cookiecutter.module_name }} logo", width=200/>
-<h2 align="center"> strawman</h2>
+<h2 align="center"> {{ cookiecutter.module_name }}</h2>
 </p>
 
 <p align="center">
