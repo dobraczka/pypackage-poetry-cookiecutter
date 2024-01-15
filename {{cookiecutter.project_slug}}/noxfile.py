@@ -16,28 +16,21 @@ locations = ["src", "tests", "noxfile.py"]
 
 @session()
 def lint(session: Session) -> None:
-    args = session.posargs or locations
-    session.install("black", "isort")
-    session.run("black", *args)
-    session.run("isort", *args)
+    session.install("pre-commit")
+    session.run(
+        "pre-commit",
+        "run",
+        "--all-files",
+        "--hook-stage=manual",
+        *session.posargs,
+    )
 
 
 @session()
 def style_checking(session: Session) -> None:
     args = session.posargs or locations
-    session.install(
-        "pyproject-flake8",
-        "flake8-eradicate",
-        "flake8-isort",
-        "flake8-debugger",
-        "flake8-comprehensions",
-        "flake8-print",
-        "flake8-black",
-        "flake8-bugbear",
-        "darglint",
-        "pydocstyle",
-    )
-    session.run("pflake8", "--docstring-style", "sphinx", *args)
+    session.install("ruff")
+    session.run("ruff", "check", *args)
 
 
 @session()
@@ -58,15 +51,6 @@ def type_checking(session: Session) -> None:
         "--ignore-missing-imports",
         *args
     )
-
-
-@session()
-def doctests(session: Session) -> None:
-    session.install(".[all]")
-    session.install("xdoctest")
-    session.install("pygments")
-    session.run("xdoctest", "-m", "{{ cookiecutter.module_name }}")
-
 
 @session()
 def build_docs(session: Session) -> None:

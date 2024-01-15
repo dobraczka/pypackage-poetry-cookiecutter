@@ -31,82 +31,45 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
-mkdocs = {version = "^1.4.2", optional = true}
-mkdocs-material = {version = "^9.0.9", optional = true}
-mkdocstrings = {extras = ["python"], version = "^0.20.0", optional = true}
-mkdocs-literate-nav = {version = "^0.6.0", optional = true}
-mkdocs-gen-files = {version = "^0.4.0", optional = true}
-mkdocs-section-index = {version = "^0.3.5", optional = true}
-
-
-[tool.poetry.group.dev.dependencies]
-ipdb = "^0.13.9"
-mypy = "^1.5.1"
-pytest = "^7.1.2"
-pytest-cov = "^3.0.0"
-pyproject-flake8 = "^0.0.1a4"
-flake8-eradicate = "^1.2.1"
-flake8-isort = "^4.1.1"
-flake8-debugger = "^4.1.2"
-flake8-comprehensions = "^3.10.0"
-flake8-print = "^5.0.0"
-nox-poetry = "^1.0.0"
-black = "^22.3.0"
-pytest-mock = "^3.7.0"
-pyroma = {git = "https://github.com/CAM-Gerlach/pyroma.git", rev = "improve-pep-517-approach"}
-xdoctest = "^1.1.0"
-pydocstyle = "^6.1.1"
-flake8-bugbear = "^22.7.1"
-darglint = "^1.8.1"
-toml = "^0.10.2"
 
 [tool.poetry.extras]
 docs = ["mkdocs", "mkdocs-material", "mkdocstrings", "mkdocs-literate-nav", "mkdocs-gen-files", "mkdocs-section-index"]
-
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.flake8]
-ignore = "E203, E266, E501, W503, F403, F401, C408, D107"
-max-line-length = 88
-max-complexity = 18
-count = "true"
-show-source = "true"
-statistics = "true"
-strictness = "short"
-docstring_style = "google"
-per-file-ignores = "tests/*: DAR002"
-
-[tool.black]
+[tool.ruff]
+# Same as Black.
 line-length = 88
-include = '\.pyi?$'
-exclude = '''
-/(
-    \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-)/
-'''
+indent-width = 4
 
-[tool.isort]
-profile = "black"
-multi_line_output = 3
-line_length = 88
-include_trailing_comma = true
-reverse_relative = true
+# Assume Python 3.8
+target-version = "py38"
 
-[tool.pytest.ini_options]
-markers = [
-    "slow: mark test as slow"
-]
+[tool.ruff.lint]
+ignore = ["E111", "E114", "E117", "E501", "D1", "D203", "D213", "D206", "D300", "Q000", "Q001", "Q002", "Q003", "COM812", "COM819", "ISC001","ISC002", "B905", "W191", "PLR0913", "PLR0912"]
+select = ["B", "C", "E", "F", "W", "B", "I", "D", "UP", "A", "C4", "T10", "ICN", "PIE", "PYI", "PT", "RET", "SIM", "ERA", "PD", "PGH", "PL", "NPY", "PERF", "RUF"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 18
+
+[tool.ruff.lint.pyupgrade]
+# Preserve types, even if a file imports `from __future__ import annotations`.
+keep-runtime-typing = true
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
 
 [tool.cruft]
 skip = ["src/{{ cookiecutter.module_name }}/__init__.py", "tests/", "README.md", "docs/"]
