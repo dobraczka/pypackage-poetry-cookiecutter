@@ -3,7 +3,7 @@ Quickstart
 Install Cookiecutter if you haven't installed it yet:
 
 ```bash
-pip install -U cookiecutter
+pipx install cookiecutter
 ```
 
 
